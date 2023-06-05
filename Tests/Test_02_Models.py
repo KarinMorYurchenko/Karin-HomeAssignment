@@ -54,4 +54,4 @@ class TestModels:
         add_command.description_input_element().send_keys('reboot')
         add_command.name_sent_to_device_input_element().send_keys('reboot')
         add_command.create_button_element().click()
-        pass
+        assert 'Name has already been taken' == add_command.alert_message().text
