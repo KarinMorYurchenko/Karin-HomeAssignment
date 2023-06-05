@@ -37,7 +37,7 @@ class TestLoginPage:
 
     """
     test_03_invalid_email(self,driver):
-        there is no popup element or another error message for invalid email.
+        there is no popup element or any error messages for invalid email.
     """
 
 
