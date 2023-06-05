@@ -16,6 +16,7 @@ class LoginPage:
             EC.presence_of_element_located((By.CSS_SELECTOR, '[data-testid="email-input"]')))
         return self.driver.find_element(By.CSS_SELECTOR, '[data-testid="email-input"]')
 
+
     @allure.step("Password Input Box")
     def password_input_box_element(self):
         WebDriverWait(self.driver, 10).until(
