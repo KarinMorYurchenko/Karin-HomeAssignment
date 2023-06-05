@@ -41,5 +41,5 @@ class AddSupportedCommand:
 
     @allure.step("Name send to device")
     def alert_message(self):
-        WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#mantine-5x03g4dug-body > form > div > p')))
-        return self.driver.find_element(By.CSS_SELECTOR, '#mantine-5x03g4dug-body > form > div > p')
+        WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.modal-body>p')))
+        return self.driver.find_element(By.CSS_SELECTOR, '.modal-body>p')
