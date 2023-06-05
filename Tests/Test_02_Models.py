@@ -2,6 +2,7 @@ import allure
 import pytest
 from selenium import webdriver
 
+from PageObjects.AddSupportedCommand import AddSupportedCommand
 from PageObjects.LoginPage import LoginPage
 from PageObjects.Model import ModelsPage
 from PageObjects.SideBar import SideBar
@@ -21,6 +22,7 @@ class TestModels:
         login_page = LoginPage(driver)
         sidebar = SideBar(driver)
         models = ModelsPage(driver)
+        add_command = AddSupportedCommand(driver)
         driver.get('https://partners.xyte.io')
         assert 'Xyte - HWaaS Platform' in driver.title
         login_page.username_input_box_element().send_keys('karinayurchenko@gmail.com')
@@ -30,6 +32,11 @@ class TestModels:
         models.model_name_element().click()
         models.supported_commands_element().click()
         models.add_command_element().click()
+        add_command.friendly_name_input_element().send_keys('QATest')
+        add_command.description_input_element().send_keys('QATest')
+        add_command.name_sent_to_device_input_element().send_keys('QATest')
+        add_command.create_button_element().click()
+        assert 'Custom command added' == add_command.popup_message().text
         pass
 
 

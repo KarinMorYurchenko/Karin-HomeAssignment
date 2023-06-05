@@ -22,7 +22,7 @@ class ModelsPage:
             EC.presence_of_element_located((By.CSS_SELECTOR, '[data-testid="location-tab-commands"]')))
         return self.driver.find_element(By.CSS_SELECTOR, '[data-testid="location-tab-commands"]')
 
-    @allure.step("Supported Commands")
+    @allure.step("Add Command Button Element")
     def add_command_element(self):
         WebDriverWait(self.driver, 3).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, '[data-testid="add-command-btn"]')))
