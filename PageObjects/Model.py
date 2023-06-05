@@ -23,9 +23,17 @@ class ModelsPage:
         return self.driver.find_element(By.CSS_SELECTOR, '[data-testid="location-tab-commands"]')
 
     @allure.step("Add Command Button Element")
-    def add_command_element(self):
+    def add_commands_element(self):
         WebDriverWait(self.driver, 5).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, '[data-testid="add-command-btn"]')))
-        return self.driver.find_element(By.CSS_SELECTOR, '[data-testid="add-command-btn"]')
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'span.mantine-1t9xh9a.mantine-Button-label')))
+        return self.driver.find_element(By.CSS_SELECTOR, 'span.mantine-1t9xh9a.mantine-Button-label')
 
-
+    # @allure.step("Add Command Button Element")
+    # def checkbox_element(self):
+    #     WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.ID, 'column-checkbox-4')))
+    #     return self.driver.find_element(By.ID, 'column-checkbox-4')
+    #
+    # @allure.step("Add Command Button Element")
+    # def remove_button(self):
+    #     WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div:nth-child(1) > div.mantine-Group-root.mantine-1e6jinj > button > div > span.mantine-1t9xh9a.mantine-Button-label')))
+    #     return self.driver.find_element(By.CSS_SELECTOR, 'div:nth-child(1) > div.mantine-Group-root.mantine-1e6jinj > button > div > span.mantine-1t9xh9a.mantine-Button-label')

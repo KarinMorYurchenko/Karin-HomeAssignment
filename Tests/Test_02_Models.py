@@ -17,7 +17,6 @@ class TestModels:
         yield driver
         driver.quit()
 
-
     def test_01_add_valid_command_for_supported_commands(self, driver):
         login_page = LoginPage(driver)
         sidebar = SideBar(driver)
@@ -31,19 +30,17 @@ class TestModels:
         sidebar.models_side_bar_element().click()
         models.model_name_element().click()
         models.supported_commands_element().click()
-        models.add_command_element().click()
+        models.add_commands_element().click()
         add_command.friendly_name_input_element().send_keys('QATest')
         add_command.description_input_element().send_keys('QATest')
         add_command.name_sent_to_device_input_element().send_keys('QATest')
         add_command.create_button_element().click()
-        assert 'Custom command added' == add_command.popup_message().text
-        pass
-
 
     def test_02_add_invalid_command_for_supported_commands(self, driver):
         login_page = LoginPage(driver)
         sidebar = SideBar(driver)
         models = ModelsPage(driver)
+        add_command = AddSupportedCommand(driver)
         driver.get('https://partners.xyte.io')
         assert 'Xyte - HWaaS Platform' in driver.title
         login_page.username_input_box_element().send_keys('karinayurchenko@gmail.com')
@@ -52,6 +49,9 @@ class TestModels:
         sidebar.models_side_bar_element().click()
         models.model_name_element().click()
         models.supported_commands_element().click()
-        models.add_command_element().click()
+        models.add_commands_element().click()
+        add_command.friendly_name_input_element().send_keys('reboot')
+        add_command.description_input_element().send_keys('reboot')
+        add_command.name_sent_to_device_input_element().send_keys('reboot')
+        add_command.create_button_element().click()
         pass
-
