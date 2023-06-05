@@ -28,6 +28,7 @@ class LoginPage:
         return WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, '[data-testid="sign-in-button"]')))
 
+
     @allure.step("Error Alert")
     def invalid_input_error_message(self):
         return WebDriverWait(self.driver, 10).until(
